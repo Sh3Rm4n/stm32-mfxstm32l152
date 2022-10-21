@@ -124,6 +124,10 @@ static int32_t MFXSTM32L152_WriteRegWrap(void *handle, uint16_t Reg, uint8_t *Da
 int32_t MFXSTM32L152_Init(MFXSTM32L152_Object_t *pObj)
 {
   int32_t ret = MFXSTM32L152_OK;
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
 
   if (pObj->IsInitialized == 0U)
   {
@@ -154,6 +158,11 @@ int32_t MFXSTM32L152_Init(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_DeInit(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   if (pObj->IsInitialized == 1U)
   {
     pObj->IsInitialized = 0U;
@@ -168,6 +177,11 @@ int32_t MFXSTM32L152_DeInit(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_Reset(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t tmp = MFXSTM32L152_SWRST;
 
@@ -187,6 +201,11 @@ int32_t MFXSTM32L152_Reset(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_LowPower(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t tmp = MFXSTM32L152_STANDBY;
 
@@ -219,6 +238,11 @@ int32_t MFXSTM32L152_WakeUp(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_ReadID(MFXSTM32L152_Object_t *pObj, uint32_t *Id)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t id;
 
@@ -245,6 +269,11 @@ int32_t MFXSTM32L152_ReadID(MFXSTM32L152_Object_t *pObj, uint32_t *Id)
   */
 int32_t MFXSTM32L152_ReadFwVersion(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   uint8_t  data[2];
   uint32_t ret;
 
@@ -272,6 +301,11 @@ int32_t MFXSTM32L152_ReadFwVersion(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_EnableITSource(MFXSTM32L152_Object_t *pObj, uint8_t Source)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t tmp;
 
@@ -311,6 +345,11 @@ int32_t MFXSTM32L152_EnableITSource(MFXSTM32L152_Object_t *pObj, uint8_t Source)
   */
 int32_t MFXSTM32L152_DisableITSource(MFXSTM32L152_Object_t *pObj, uint8_t Source)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t tmp;
 
@@ -351,6 +390,11 @@ int32_t MFXSTM32L152_DisableITSource(MFXSTM32L152_Object_t *pObj, uint8_t Source
   */
 int32_t MFXSTM32L152_GlobalITStatus(MFXSTM32L152_Object_t *pObj, uint8_t Source)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret;
   uint8_t tmp;
   uint8_t tmp1;
@@ -387,6 +431,11 @@ int32_t MFXSTM32L152_GlobalITStatus(MFXSTM32L152_Object_t *pObj, uint8_t Source)
   */
 int32_t MFXSTM32L152_ClearGlobalIT(MFXSTM32L152_Object_t *pObj, uint8_t Source)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Write 1 to the bits that have to be cleared */
@@ -408,6 +457,11 @@ int32_t MFXSTM32L152_ClearGlobalIT(MFXSTM32L152_Object_t *pObj, uint8_t Source)
   */
 int32_t MFXSTM32L152_SetIrqOutPinPolarity(MFXSTM32L152_Object_t *pObj, uint8_t Polarity)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t tmp;
 
@@ -444,6 +498,11 @@ int32_t MFXSTM32L152_SetIrqOutPinPolarity(MFXSTM32L152_Object_t *pObj, uint8_t P
   */
 int32_t MFXSTM32L152_SetIrqOutPinType(MFXSTM32L152_Object_t *pObj, uint8_t Type)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t tmp;
 
@@ -484,6 +543,11 @@ int32_t MFXSTM32L152_SetIrqOutPinType(MFXSTM32L152_Object_t *pObj, uint8_t Type)
   */
 int32_t MFXSTM32L152_IO_Start(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t mode;
 
@@ -533,6 +597,11 @@ int32_t MFXSTM32L152_IO_Start(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
   */
 int32_t MFXSTM32L152_IO_Init(MFXSTM32L152_Object_t *pObj, MFXSTM32L152_IO_Init_t *IoInit)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* IT enable/disable */
@@ -667,6 +736,11 @@ int32_t MFXSTM32L152_IO_Init(MFXSTM32L152_Object_t *pObj, MFXSTM32L152_IO_Init_t
   */
 int32_t MFXSTM32L152_IO_InitPin(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin, uint8_t Direction)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   if (MFXSTM32L152_reg24_setPinValue(pObj, MFXSTM32L152_REG_ADR_GPIO_DIR1, IO_Pin, Direction) != MFXSTM32L152_OK)
@@ -690,6 +764,11 @@ int32_t MFXSTM32L152_IO_InitPin(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin, ui
   */
 int32_t MFXSTM32L152_IO_SetIrqEvtMode(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin, uint8_t Evt)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   if (MFXSTM32L152_reg24_setPinValue(pObj, MFXSTM32L152_REG_ADR_IRQ_GPI_EVT1, IO_Pin, Evt) != MFXSTM32L152_OK)
@@ -714,6 +793,11 @@ int32_t MFXSTM32L152_IO_SetIrqEvtMode(MFXSTM32L152_Object_t *pObj, uint32_t IO_P
   */
 int32_t MFXSTM32L152_IO_SetIrqTypeMode(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin, uint8_t Type)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   if (MFXSTM32L152_reg24_setPinValue(pObj, MFXSTM32L152_REG_ADR_IRQ_GPI_TYPE1, IO_Pin, Type) != MFXSTM32L152_OK)
@@ -735,6 +819,11 @@ int32_t MFXSTM32L152_IO_SetIrqTypeMode(MFXSTM32L152_Object_t *pObj, uint32_t IO_
   */
 int32_t MFXSTM32L152_IO_WritePin(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin, uint8_t PinState)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Apply the bit value to the selected pin */
@@ -768,6 +857,11 @@ int32_t MFXSTM32L152_IO_WritePin(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin, u
   */
 int32_t MFXSTM32L152_IO_ReadPin(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   uint8_t tmpreg[3];
   uint32_t tmp;
 
@@ -796,6 +890,11 @@ int32_t MFXSTM32L152_IO_ReadPin(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
   */
 int32_t MFXSTM32L152_IO_EnableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Enable global IO IT source */
@@ -814,6 +913,11 @@ int32_t MFXSTM32L152_IO_EnableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IO_DisableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Disable global IO IT source */
@@ -835,6 +939,11 @@ int32_t MFXSTM32L152_IO_DisableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IO_EnablePinIT(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   if (MFXSTM32L152_reg24_setPinValue(pObj, MFXSTM32L152_REG_ADR_IRQ_GPI_SRC1, IO_Pin, 1) != MFXSTM32L152_OK)
@@ -855,6 +964,11 @@ int32_t MFXSTM32L152_IO_EnablePinIT(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin
   */
 int32_t MFXSTM32L152_IO_DisablePinIT(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   if (MFXSTM32L152_reg24_setPinValue(pObj, MFXSTM32L152_REG_ADR_IRQ_GPI_SRC1, IO_Pin, 0) != MFXSTM32L152_OK)
@@ -875,6 +989,11 @@ int32_t MFXSTM32L152_IO_DisablePinIT(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pi
   */
 int32_t MFXSTM32L152_IO_ITStatus(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   /* Get the Interrupt status */
   uint8_t tmpreg[3];
   uint32_t tmp;
@@ -909,6 +1028,11 @@ int32_t MFXSTM32L152_IO_ITStatus(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
   */
 int32_t MFXSTM32L152_IO_ClearIT(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   /* Clear the IO IT pending bit(s) by acknowledging */
   /* it cleans automatically also the Global IRQ_GPIO */
   /* normally this function is called under interrupt */
@@ -954,6 +1078,11 @@ int32_t MFXSTM32L152_IO_ClearIT(MFXSTM32L152_Object_t *pObj, uint32_t IO_Pin)
   */
 int32_t MFXSTM32L152_IO_EnableAF(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t mode;
 
@@ -991,6 +1120,11 @@ int32_t MFXSTM32L152_IO_EnableAF(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IO_DisableAF(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t mode;
 
@@ -1033,6 +1167,11 @@ int32_t MFXSTM32L152_IO_DisableAF(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_TS_Start(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret;
   uint8_t mode;
   uint8_t tmp;
@@ -1096,6 +1235,11 @@ int32_t MFXSTM32L152_TS_Start(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_TS_DetectTouch(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t state;
   uint8_t fifo_level;
@@ -1134,6 +1278,11 @@ int32_t MFXSTM32L152_TS_DetectTouch(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_TS_GetXY(MFXSTM32L152_Object_t *pObj, uint16_t *X, uint16_t *Y)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t  data_xy[3];
   uint8_t  tmp;
@@ -1161,6 +1310,11 @@ int32_t MFXSTM32L152_TS_GetXY(MFXSTM32L152_Object_t *pObj, uint16_t *X, uint16_t
   */
 int32_t MFXSTM32L152_TS_EnableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Enable global TS IT source */
@@ -1179,6 +1333,11 @@ int32_t MFXSTM32L152_TS_EnableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_TS_DisableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Disable global TS IT source */
@@ -1197,6 +1356,11 @@ int32_t MFXSTM32L152_TS_DisableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_TS_ITStatus(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   /* Return TS interrupts status */
   return (MFXSTM32L152_GlobalITStatus(pObj, MFXSTM32L152_IRQ_TS));
 }
@@ -1208,6 +1372,11 @@ int32_t MFXSTM32L152_TS_ITStatus(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_TS_ClearIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Clear the global TS IT source */
@@ -1230,6 +1399,11 @@ int32_t MFXSTM32L152_TS_ClearIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IDD_Start(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t mode = 0;
 
@@ -1261,6 +1435,11 @@ int32_t MFXSTM32L152_IDD_Start(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IDD_Config(MFXSTM32L152_Object_t *pObj, MFXSTM32L152_IDD_Config_t *MfxIddConfig)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret;
   uint8_t value;
   uint8_t mode = 0;
@@ -1378,6 +1557,11 @@ int32_t MFXSTM32L152_IDD_Config(MFXSTM32L152_Object_t *pObj, MFXSTM32L152_IDD_Co
   */
 int32_t MFXSTM32L152_IDD_ConfigShuntNbLimit(MFXSTM32L152_Object_t *pObj, uint8_t ShuntNbLimit)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t mode = 0;
 
@@ -1412,6 +1596,11 @@ int32_t MFXSTM32L152_IDD_ConfigShuntNbLimit(MFXSTM32L152_Object_t *pObj, uint8_t
   */
 int32_t MFXSTM32L152_IDD_GetValue(MFXSTM32L152_Object_t *pObj, uint32_t *ReadValue)
 {
+  if (pObj == NULL || ReadValue == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   uint8_t  data[3];
 
   pObj->IO.ReadReg(pObj->IO.Address, MFXSTM32L152_REG_ADR_IDD_VALUE_MSB, data, sizeof(data));
@@ -1429,6 +1618,11 @@ int32_t MFXSTM32L152_IDD_GetValue(MFXSTM32L152_Object_t *pObj, uint32_t *ReadVal
   */
 int32_t MFXSTM32L152_IDD_GetShuntUsed(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
   uint8_t tmp;
 
@@ -1447,6 +1641,11 @@ int32_t MFXSTM32L152_IDD_GetShuntUsed(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IDD_EnableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Enable global IDD interrupt source */
@@ -1465,6 +1664,11 @@ int32_t MFXSTM32L152_IDD_EnableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IDD_ClearIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Clear the global IDD interrupt source */
@@ -1483,6 +1687,11 @@ int32_t MFXSTM32L152_IDD_ClearIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IDD_GetITStatus(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   /* Return IDD interrupt status */
   return (MFXSTM32L152_GlobalITStatus(pObj, MFXSTM32L152_IRQ_IDD));
 }
@@ -1494,6 +1703,11 @@ int32_t MFXSTM32L152_IDD_GetITStatus(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_IDD_DisableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Disable global IDD interrupt source */
@@ -1517,6 +1731,11 @@ int32_t MFXSTM32L152_IDD_DisableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_Error_ReadSrc(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret;
   uint8_t tmp;
 
@@ -1540,6 +1759,11 @@ int32_t MFXSTM32L152_Error_ReadSrc(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_Error_ReadMsg(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret;
   uint8_t tmp;
 
@@ -1564,6 +1788,11 @@ int32_t MFXSTM32L152_Error_ReadMsg(MFXSTM32L152_Object_t *pObj)
 
 int32_t MFXSTM32L152_Error_EnableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Enable global Error interrupt source */
@@ -1582,6 +1811,11 @@ int32_t MFXSTM32L152_Error_EnableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_Error_ClearIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Clear the global Error interrupt source */
@@ -1600,6 +1834,11 @@ int32_t MFXSTM32L152_Error_ClearIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_Error_GetITStatus(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   /* Return Error interrupt status */
   return (MFXSTM32L152_GlobalITStatus(pObj, MFXSTM32L152_IRQ_ERROR));
 }
@@ -1611,6 +1850,11 @@ int32_t MFXSTM32L152_Error_GetITStatus(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_Error_DisableIT(MFXSTM32L152_Object_t *pObj)
 {
+  if (pObj == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret = MFXSTM32L152_OK;
 
   /* Disable global Error interrupt source */
@@ -1629,6 +1873,11 @@ int32_t MFXSTM32L152_Error_DisableIT(MFXSTM32L152_Object_t *pObj)
   */
 int32_t MFXSTM32L152_RegisterBusIO(MFXSTM32L152_Object_t *pObj, MFXSTM32L152_IO_t *pIO)
 {
+  if (pObj == NULL || pIO == NULL)
+  {
+    return MFXSTM32L152_ERROR;
+  }
+
   int32_t ret;
 
   if (pObj == NULL)
